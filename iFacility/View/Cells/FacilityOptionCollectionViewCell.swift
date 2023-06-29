@@ -63,7 +63,7 @@ class FacilityOptionCollectionViewCell: UICollectionViewCell {
     
     func cellSetup(model : Option){
         optionLabel.text = model.name
-        optionImage.image = UIImage(named: "\(model.icon)")
+        optionImage.image = UIImage(named: "\(model.icon ?? "")")
 
     }
 

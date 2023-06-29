@@ -8,6 +8,6 @@
 import Foundation
 
 struct FacilitiesData: Codable {
-    let facilities: [Facility]
-    let exclusions: [[Exclusion]]
+    let facilities: [Facility]?
+    let exclusions: [[Exclusion]]?
 }

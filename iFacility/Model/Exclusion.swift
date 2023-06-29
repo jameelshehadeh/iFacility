@@ -8,7 +8,7 @@
 import Foundation
 
 struct Exclusion: Codable {
-    let facilityID, optionsID: String
+    let facilityID, optionsID: String?
 
     enum CodingKeys: String, CodingKey {
         case facilityID = "facility_id"

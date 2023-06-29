@@ -9,8 +9,8 @@ import Foundation
 
 struct Facility: Codable {
     
-    let facilityID, name: String
-    let options: [Option]
+    let facilityID, name: String?
+    let options: [Option]?
 
     enum CodingKeys: String, CodingKey {
         case facilityID = "facility_id"

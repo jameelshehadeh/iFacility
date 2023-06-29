@@ -93,22 +93,22 @@ extension FacilityTableViewCell : UICollectionViewDelegate , UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        model?.options.count ?? 0
+        model?.options?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FacilityOptionCollectionViewCell", for: indexPath) as? FacilityOptionCollectionViewCell , let optionModel = model?.options[indexPath.item] else {return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FacilityOptionCollectionViewCell", for: indexPath) as? FacilityOptionCollectionViewCell , let optionModel = model?.options?[indexPath.item] else {return UICollectionViewCell()}
         cell.cellSetup(model: optionModel)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let option = model?.options[indexPath.item] else {return}
+        guard let option = model?.options?[indexPath.item] else {return}
         delegate?.didSelectOption(option: option)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let text = model?.options[indexPath.item].name ?? ""
+        let text = model?.options?[indexPath.item].name ?? ""
         return CGSize(width: text.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]).width + 40 + 20, height: 35)
     }
     

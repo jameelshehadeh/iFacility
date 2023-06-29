@@ -8,5 +8,5 @@
 import Foundation
 
 struct Option: Codable {
-    let name, icon, id: String
+    let name, icon, id: String?
 }

@@ -45,8 +45,8 @@ class FacilitiesViewModel  {
 
             switch response.result {
             case .success(let facilitiesData):
-                self.facilities = facilitiesData.facilities
-                self.exclusions = facilitiesData.exclusions
+                self.facilities = facilitiesData.facilities ?? []
+                self.exclusions = facilitiesData.exclusions ?? []
             case .failure(let error):
                 print(error)
             }
