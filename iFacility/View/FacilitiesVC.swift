@@ -76,7 +76,9 @@ extension FacilitiesVC : UITableViewDelegate , UITableViewDataSource {
 }
 
 extension FacilitiesVC : FacilityTableViewCellDelegate {
+    
     func didSelectOption(option: Option) {
-        
+        viewModel.selectOption(option: option)
     }
+    
 }

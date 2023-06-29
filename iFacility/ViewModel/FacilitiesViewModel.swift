@@ -59,6 +59,35 @@ class FacilitiesViewModel  {
         facilities[index]
     }
     
+    func selectOption(option: Option) {
+        
+        guard isOptionExcluded(option: option) == false else {return}
+        selectedOptions.append(option)
+        print(selectedOptions)
+    }
+    
+    func isOptionExcluded(option: Option) -> Bool {
+        
+        guard selectedOptions.count > 0 else {
+            return false
+        }
+        
+        let filteredExclusions = exclusions.filter { exclusions in
+            exclusions.contains { $0.optionsID == option.id }
+        }
+        
+        for exclusions in filteredExclusions {
+            for ex in exclusions {
+                if ex.optionsID != option.id {
+                    return selectedOptions.contains { $0.id == ex.optionsID}
+                }
+            }
+        }
+        
+        return false
+        
+    }
+    
 }
     
     
