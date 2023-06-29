@@ -13,9 +13,10 @@ class FacilitiesVC: UIViewController {
     
     private lazy var tableView : UITableView = {
        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(FacilityTableViewCell.self, forCellReuseIdentifier: "FacilityTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 100
         return tableView
     }()
     
@@ -59,9 +60,8 @@ extension FacilitiesVC : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-        
-        cell.textLabel?.text = viewModel.facility(at: indexPath.row).name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FacilityTableViewCell") as? FacilityTableViewCell else {return UITableViewCell()}
+        cell.setupCell(model: viewModel.facility(at: indexPath.row))
         return cell
     }
     

@@ -19,6 +19,9 @@
 		FAD6D9B72A4C98D300AB4378 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9B62A4C98D300AB4378 /* Endpoint.swift */; };
 		FAD6D9B92A4D400500AB4378 /* FacilitiesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9B82A4D400500AB4378 /* FacilitiesData.swift */; };
 		FAD6D9BB2A4D401F00AB4378 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9BA2A4D401F00AB4378 /* Option.swift */; };
+		FAD6D9C12A4D54FA00AB4378 /* FacilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9C02A4D54FA00AB4378 /* FacilityTableViewCell.swift */; };
+		FAD6D9C42A4D567400AB4378 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6D9C32A4D567400AB4378 /* SnapKit */; };
+		FAD6D9C62A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,8 @@
 		FAD6D9B62A4C98D300AB4378 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FAD6D9B82A4D400500AB4378 /* FacilitiesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilitiesData.swift; sourceTree = "<group>"; };
 		FAD6D9BA2A4D401F00AB4378 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		FAD6D9C02A4D54FA00AB4378 /* FacilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityTableViewCell.swift; sourceTree = "<group>"; };
+		FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD6D9C42A4D567400AB4378 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +92,7 @@
 		FAD6D9AA2A4C96FD00AB4378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAD6D9BF2A4D54E900AB4378 /* Cells */,
 				FAD6D99A2A4C920F00AB4378 /* FacilitiesVC.swift */,
 			);
 			path = View;
@@ -119,6 +126,15 @@
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
+		FAD6D9BF2A4D54E900AB4378 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAD6D9C02A4D54FA00AB4378 /* FacilityTableViewCell.swift */,
+				FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +151,9 @@
 			dependencies = (
 			);
 			name = iFacility;
+			packageProductDependencies = (
+				FAD6D9C32A4D567400AB4378 /* SnapKit */,
+			);
 			productName = iFacility;
 			productReference = FAD6D9932A4C920F00AB4378 /* iFacility.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +182,9 @@
 				Base,
 			);
 			mainGroup = FAD6D98A2A4C920F00AB4378;
+			packageReferences = (
+				FAD6D9C22A4D567400AB4378 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FAD6D9942A4C920F00AB4378 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -190,10 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD6D9B32A4C979800AB4378 /* NetworkManager.swift in Sources */,
+				FAD6D9C12A4D54FA00AB4378 /* FacilityTableViewCell.swift in Sources */,
 				FAD6D99B2A4C920F00AB4378 /* FacilitiesVC.swift in Sources */,
 				FAD6D9BB2A4D401F00AB4378 /* Option.swift in Sources */,
 				FAD6D9B72A4C98D300AB4378 /* Endpoint.swift in Sources */,
 				FAD6D9B02A4C975100AB4378 /* Exclusion.swift in Sources */,
+				FAD6D9C62A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift in Sources */,
 				FAD6D9B92A4D400500AB4378 /* FacilitiesData.swift in Sources */,
 				FAD6D9972A4C920F00AB4378 /* AppDelegate.swift in Sources */,
 				FAD6D9AE2A4C972100AB4378 /* Facility.swift in Sources */,
@@ -414,6 +438,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAD6D9C22A4D567400AB4378 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAD6D9C32A4D567400AB4378 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD6D9C22A4D567400AB4378 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAD6D98B2A4C920F00AB4378 /* Project object */;
 }
