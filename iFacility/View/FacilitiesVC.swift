@@ -37,6 +37,13 @@ class FacilitiesVC: UIViewController {
             }
         }
         
+        viewModel.didUpdateExclusions = { [weak self] in
+            guard let self else {return}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     init(viewModel: FacilitiesViewModel) {
@@ -62,7 +69,14 @@ extension FacilitiesVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FacilityTableViewCell") as? FacilityTableViewCell else {return UITableViewCell()}
         cell.setupCell(model: viewModel.facility(at: indexPath.row))
+        cell.delegate = self
         return cell
     }
     
+}
+
+extension FacilitiesVC : FacilityTableViewCellDelegate {
+    func didSelectOption(option: Option) {
+        
+    }
 }

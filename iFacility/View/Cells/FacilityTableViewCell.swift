@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol FacilityTableViewCellDelegate : AnyObject {
+    func didSelectOption(option: Option)
+}
+
 class FacilityTableViewCell: UITableViewCell {
     
     var model : Facility?
+    
+    weak var delegate : FacilityTableViewCellDelegate?
     
     private lazy var vStackView : UIStackView = {
         let stackView = UIStackView.init(arrangedSubviews: [facilityNameLabel,optionsCollectionView])
@@ -96,6 +102,11 @@ extension FacilityTableViewCell : UICollectionViewDelegate , UICollectionViewDat
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let option = model?.options[indexPath.item] else {return}
+        delegate?.didSelectOption(option: option)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let text = model?.options[indexPath.item].name ?? ""
         return CGSize(width: text.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]).width + 40 + 20, height: 35)

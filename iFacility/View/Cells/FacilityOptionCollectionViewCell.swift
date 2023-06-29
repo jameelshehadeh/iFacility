@@ -64,8 +64,9 @@ class FacilityOptionCollectionViewCell: UICollectionViewCell {
     func cellSetup(model : Option){
         optionLabel.text = model.name
         optionImage.image = UIImage(named: "\(model.icon)")
+
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

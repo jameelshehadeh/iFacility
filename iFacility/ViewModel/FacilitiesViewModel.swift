@@ -27,7 +27,13 @@ class FacilitiesViewModel  {
         return facilities.count
     }
     
+    private var exclusions = [[Exclusion]]()
+    
+    var selectedOptions : [Option] = []
+                                             
     var didUpdateFacilities : ()->() = {}
+    
+    var didUpdateExclusions : ()->() = {}
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -40,6 +46,7 @@ class FacilitiesViewModel  {
             switch response.result {
             case .success(let facilitiesData):
                 self.facilities = facilitiesData.facilities
+                self.exclusions = facilitiesData.exclusions
             case .failure(let error):
                 print(error)
             }
