@@ -46,6 +46,7 @@
 		FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAD6D9C72A4EDAB400AB4378 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		FAD6D9C92A4EDEFF00AB4378 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		FAD6D9CB2A4EE28700AB4378 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		FAD6D98A2A4C920F00AB4378 = {
 			isa = PBXGroup;
 			children = (
+				FAD6D9CB2A4EE28700AB4378 /* README.md */,
 				FAD6D9952A4C920F00AB4378 /* iFacility */,
 				FAD6D9942A4C920F00AB4378 /* Products */,
 			);
@@ -96,9 +98,9 @@
 		FAD6D9AA2A4C96FD00AB4378 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAD6D9C92A4EDEFF00AB4378 /* Alertable.swift */,
 				FAD6D9BF2A4D54E900AB4378 /* Cells */,
 				FAD6D99A2A4C920F00AB4378 /* FacilitiesVC.swift */,
-				FAD6D9C92A4EDEFF00AB4378 /* Alertable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
