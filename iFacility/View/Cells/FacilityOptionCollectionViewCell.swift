@@ -29,7 +29,7 @@ class FacilityOptionCollectionViewCell: UICollectionViewCell {
     let optionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        label.textColor = .darkGray
+        label.textColor = .label
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         return label

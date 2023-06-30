@@ -11,21 +11,32 @@ class FacilitiesVC: UIViewController {
 
     var viewModel : FacilitiesViewModel
     
+    private let refreshControl = UIRefreshControl()
+    
     private lazy var tableView : UITableView = {
        let tableView = UITableView()
         tableView.register(FacilityTableViewCell.self, forCellReuseIdentifier: "FacilityTableViewCell")
+        tableView.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
         tableView.rowHeight = 100
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         bindData()
         viewModel.fetchFacilities()
-        view.addSubview(tableView)
-        tableView.frame = view.frame
+        refreshControl.addTarget(self, action: #selector(reloadPage), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        self.refreshControl.beginRefreshing()
     }
     
     func bindData(){
@@ -34,9 +45,14 @@ class FacilitiesVC: UIViewController {
             guard let self else {return}
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
         
+    }
+    
+    @objc func reloadPage(){
+        viewModel.fetchFacilities()
     }
     
     init(viewModel: FacilitiesViewModel) {
