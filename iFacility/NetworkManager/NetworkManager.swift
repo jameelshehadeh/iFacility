@@ -24,14 +24,17 @@ class NetworkManager : NetworkService {
     
     private init() {}
     
-    func fetchRequest<T: Codable>(endPoint: Endpoint ,completion: @escaping (APIResponse<T>) -> ()) {
+    func fetchRequest<T: Codable>(endPoint: Endpoint ,method: HTTPMethod = .get,completion: @escaping (APIResponse<T>) -> ()) {
         
         guard let url = URL(string: endPoint.url) else {
             completion(APIResponse(result: .failure(.invalidURL)))
             return
         }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 completion(APIResponse(result: .failure(.requestFailed(error))))
                 return

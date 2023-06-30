@@ -22,6 +22,7 @@
 		FAD6D9C12A4D54FA00AB4378 /* FacilityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9C02A4D54FA00AB4378 /* FacilityTableViewCell.swift */; };
 		FAD6D9C42A4D567400AB4378 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAD6D9C32A4D567400AB4378 /* SnapKit */; };
 		FAD6D9C62A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */; };
+		FAD6D9C82A4EDAB400AB4378 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6D9C72A4EDAB400AB4378 /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FAD6D9BA2A4D401F00AB4378 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		FAD6D9C02A4D54FA00AB4378 /* FacilityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityTableViewCell.swift; sourceTree = "<group>"; };
 		FAD6D9C52A4D62BC00AB4378 /* FacilityOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityOptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAD6D9C72A4EDAB400AB4378 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				FAD6D9B22A4C979800AB4378 /* NetworkManager.swift */,
 				FAD6D9B62A4C98D300AB4378 /* Endpoint.swift */,
+				FAD6D9C72A4EDAB400AB4378 /* HTTPMethod.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				FAD6D9B92A4D400500AB4378 /* FacilitiesData.swift in Sources */,
 				FAD6D9972A4C920F00AB4378 /* AppDelegate.swift in Sources */,
 				FAD6D9AE2A4C972100AB4378 /* Facility.swift in Sources */,
+				FAD6D9C82A4EDAB400AB4378 /* HTTPMethod.swift in Sources */,
 				FAD6D9992A4C920F00AB4378 /* SceneDelegate.swift in Sources */,
 				FAD6D9B52A4C988800AB4378 /* FacilitiesViewModel.swift in Sources */,
 			);

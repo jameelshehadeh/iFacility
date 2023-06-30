@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkService {
     
-    func fetchRequest<T: Codable>(endPoint: Endpoint, completion: @escaping (APIResponse<T>) -> Void)
+    func fetchRequest<T: Codable>(endPoint: Endpoint,method: HTTPMethod, completion: @escaping (APIResponse<T>) -> Void)
     
 }
 
@@ -39,7 +39,7 @@ class FacilitiesViewModel  {
     
     func fetchFacilities(){
         
-        networkService.fetchRequest(endPoint: .getFacilities) { (response: APIResponse<FacilitiesData>) in
+        networkService.fetchRequest(endPoint: .getFacilities,method: .get) { (response: APIResponse<FacilitiesData>) in
 
             switch response.result {
             case .success(let facilitiesData):
