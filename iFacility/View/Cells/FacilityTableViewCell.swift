@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol FacilityTableViewCellDelegate : AnyObject {
-    func didSelectOption(option: Option)
+    func didSelectOption(option: Option,facilityId: String)
 }
 
 class FacilityTableViewCell: UITableViewCell {
@@ -103,8 +103,14 @@ extension FacilityTableViewCell : UICollectionViewDelegate , UICollectionViewDat
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let option = model?.options?[indexPath.item] else {return}
-        delegate?.didSelectOption(option: option)
+        guard let selectedOption = model?.options?[indexPath.item], selectedOption.isSelected == false else {return}
+        model?.options?.forEach({ option in
+            if option.id ?? "" != selectedOption.id {
+                option.isSelected = false
+            }
+        })
+        delegate?.didSelectOption(option: selectedOption, facilityId: model?.facilityID ?? "")
+        optionsCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

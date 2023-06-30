@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Option: Codable {
+class Option: Codable {
     let name, icon, id: String?
+    var isSelected : Bool? = false
 }

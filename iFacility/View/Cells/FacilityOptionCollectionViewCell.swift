@@ -61,10 +61,14 @@ class FacilityOptionCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func cellSetup(model : Option){
-        optionLabel.text = model.name
-        optionImage.image = UIImage(named: "\(model.icon ?? "")")
-
+    func cellSetup(model option : Option){
+        optionLabel.text = option.name
+        optionImage.image = UIImage(named: "\(option.icon ?? "")")
+        
+        option.isSelected == true ?
+        (containerView.backgroundColor = .systemGreen.withAlphaComponent(0.2)) :
+            (containerView.backgroundColor = .lightGray.withAlphaComponent(0.2))
+        
     }
 
     required init?(coder: NSCoder) {

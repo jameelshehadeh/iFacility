@@ -29,11 +29,9 @@ class FacilitiesViewModel  {
     
     private var exclusions = [[Exclusion]]()
     
-    var selectedOptions : [Option] = []
-                                             
-    var didUpdateFacilities : ()->() = {}
+    var selectedOptions : [String:Option] = [:]
     
-    var didUpdateExclusions : ()->() = {}
+    var didUpdateFacilities : ()->() = {}
     
     init(networkService: NetworkService) {
         self.networkService = networkService
@@ -46,51 +44,63 @@ class FacilitiesViewModel  {
             switch response.result {
             case .success(let facilitiesData):
                 self.facilities = facilitiesData.facilities ?? []
+                self.facilities.forEach { fac in
+                    fac.options?.forEach({ option in
+                        option.isSelected = false
+                    })
+                }
                 self.exclusions = facilitiesData.exclusions ?? []
             case .failure(let error):
                 print(error)
             }
             
         }
-        
     }
     
     func facility(at index: Int) -> Facility {
         facilities[index]
     }
     
-    func selectOption(option: Option) {
-        
-        guard isOptionExcluded(option: option) == false else {return}
-        selectedOptions.append(option)
-        print(selectedOptions)
-    }
     
-    func isOptionExcluded(option: Option) -> Bool {
+    func selectOption(option: Option,facilityId: String)  {
         
-        guard selectedOptions.count > 0 else {
+        guard isOptionExcluded(option: option,facilityId: facilityId) == false else
+        {return}
+    
+        selectedOptions.removeValue(forKey: facilityId)
+        selectedOptions[facilityId] = option
+        
+    }
+        
+    
+    func isOptionExcluded(option: Option,facilityId: String) -> Bool {
+        
+        guard selectedOptions.count > 0 , let selectedOptionId = option.id else {
             return false
         }
         
+        let selectedOptionIDs = selectedOptions.values.compactMap { $0.id }
+        
         let filteredExclusions = exclusions.filter { exclusions in
-            exclusions.contains { $0.optionsID == option.id }
+            exclusions.contains { $0.optionsID == selectedOptionId }
         }
         
-        for exclusions in filteredExclusions {
-            for ex in exclusions {
-                if ex.optionsID != option.id {
-                    return selectedOptions.contains { $0.id == ex.optionsID}
-                }
-            }
+        let filteredExcludedIds = filteredExclusions.map { exclusion in
+            exclusion.filter { $0.optionsID != selectedOptionId }
+        }.compactMap { exclusions in
+            exclusions.compactMap { $0.optionsID }
         }
         
-        return false
-        
+        if selectedOptionIDs.allSatisfy({ id in
+            filteredExcludedIds.allSatisfy { $0.contains { $0 != id}}
+        }) {
+            option.isSelected?.toggle()
+            return false
+        }
+        else {
+            selectedOptions[facilityId] = nil
+            return true
+        }
     }
     
 }
-    
-    
-
-
-

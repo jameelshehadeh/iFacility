@@ -37,13 +37,6 @@ class FacilitiesVC: UIViewController {
             }
         }
         
-        viewModel.didUpdateExclusions = { [weak self] in
-            guard let self else {return}
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
     }
     
     init(viewModel: FacilitiesViewModel) {
@@ -77,8 +70,8 @@ extension FacilitiesVC : UITableViewDelegate , UITableViewDataSource {
 
 extension FacilitiesVC : FacilityTableViewCellDelegate {
     
-    func didSelectOption(option: Option) {
-        viewModel.selectOption(option: option)
+    func didSelectOption(option: Option,facilityId: String) {
+        viewModel.selectOption(option: option,facilityId: facilityId)
     }
     
 }

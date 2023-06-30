@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Facility: Codable {
+class Facility: Codable {
     
     let facilityID, name: String?
-    let options: [Option]?
+    var options: [Option]?
 
     enum CodingKeys: String, CodingKey {
         case facilityID = "facility_id"
