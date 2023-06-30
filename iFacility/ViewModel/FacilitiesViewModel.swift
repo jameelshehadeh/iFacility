@@ -33,6 +33,8 @@ class FacilitiesViewModel  {
     
     var didUpdateFacilities : ()->() = {}
     
+    var showAlert : (String)->() = { _ in }
+    
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
@@ -75,7 +77,9 @@ class FacilitiesViewModel  {
     
     func isOptionExcluded(option: Option,facilityId: String) -> Bool {
         
-        guard selectedOptions.count > 0 , let selectedOptionId = option.id else {
+        guard selectedOptions.count > 0 , let selectedOptionId = option.id else
+        {
+            option.isSelected?.toggle()
             return false
         }
         
@@ -98,7 +102,9 @@ class FacilitiesViewModel  {
             return false
         }
         else {
+            showAlert("you cant select \(option.name?.lowercased() ?? "") with the selected options")
             selectedOptions[facilityId] = nil
+            
             return true
         }
     }

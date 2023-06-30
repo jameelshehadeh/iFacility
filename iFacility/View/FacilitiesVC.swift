@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FacilitiesVC: UIViewController {
+class FacilitiesVC: UIViewController , Alertable {
 
     var viewModel : FacilitiesViewModel
     
@@ -47,6 +47,11 @@ class FacilitiesVC: UIViewController {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
             }
+        }
+        
+        viewModel.showAlert = { [weak self] alertMessage in
+            guard let self else {return}
+            showAlert(title: "Error", message: alertMessage, preferredStyle: .alert, completion: nil)
         }
         
     }
