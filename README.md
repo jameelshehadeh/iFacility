@@ -9,6 +9,9 @@ This project demonstrates a user interface that allows users to select options f
 - Allow users to select one option from each facility.
 - Apply exclusion conditions to prevent incompatible options from being selected together.
 
+## Screenshots 
+
+<img width="586" alt="Screenshot 2023-06-30 at 2 34 22 PM" src="https://github.com/jameelshehadeh/iFacility/assets/24472126/108c42bb-50cb-4fbb-b3c4-46be15769f4f">
 
 ## Explanation 
 
