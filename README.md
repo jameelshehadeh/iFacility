@@ -8,6 +8,7 @@ This project demonstrates a user interface that allows users to select options f
 - Display a list of facilities and their options.
 - Allow users to select one option from each facility.
 - Apply exclusion conditions to prevent incompatible options from being selected together.
+- Support Dark and light mode.
 
 ## Screenshots 
 
